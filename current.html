@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bild Aktualisierung</title>
+    <script>
+        function updateImage() {
+            var img = document.getElementById("dynamicImage");
+            img.src = "current.jpg?t=" + new Date().getTime();
+        }
+        
+        setInterval(updateImage, 30000);
+    </script>
+</head>
+<body>
+    <h1>Live-Bild Aktualisierung</h1>
+    <img id="dynamicImage" src="current.jpg" alt="Aktuelles Bild" width="600">
+</body>
+</html>
