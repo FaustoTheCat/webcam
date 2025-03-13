@@ -10,7 +10,7 @@ OUTPUT_DIR="/home/karsten/bilder"
 
 # Sicherstellen, dass das Verzeichnis existiert
 mkdir -p "$OUTPUT_DIR"
-for i in {1..1}; do
+for i in {1..2}; do
 # Endlosschleife zum periodischen Herunterladen der Bilder
   # Zeitstempel erzeugen (Format: Jahr-Monat-Tag_Stunde-Minute-Sekunde)
   TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
