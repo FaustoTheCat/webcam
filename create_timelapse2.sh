@@ -32,5 +32,5 @@ ffmpeg -framerate $FRAMERATE -i "$TEMP_DIR/image_%04d.jpg" -c:v libx264 -r 30 -p
 # Entferne das temporäre Verzeichnis nach dem Erstellen des Videos (optional)
 rm -rf "$TEMP_DIR"
 # link auf das aktuelle videi erstellen
-ln -sf $OUTPUT_VIDEO ${IMAGE_DIR}/capture.mp4
+ln -sf $OUTPUT_VIDEO ${IMAGE_DIR}/current.mp4
 echo "Das Zeitraffervideo wurde als $OUTPUT_VIDEO erstellt."
