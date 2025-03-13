@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bild Aktualisierung</title>
-    <script>
-        function updateImage() {
-            var img = document.getElementById("dynamicImage");
-            img.src = "current.jpg?t=" + new Date().getTime();
-        }
-        
-        setInterval(updateImage, 30000);
-    </script>
+    <title>Bildanzeige mit Aktualisierung</title>
 </head>
 <body>
-    <h1>Live-Bild Aktualisierung</h1>
-    <img id="dynamicImage" src="current.jpg" alt="Aktuelles Bild" width="600">
+    <h1>Aktuelles Bild</h1>
+    <img id="currentImage" src="current.jpg" alt="Aktuelles Bild" width="600">
+    <p>Letzte Aktualisierung: <span id="lastUpdated"></span></p>
+
+    <script>
+        function updateImage() {
+            const img = document.getElementById('currentImage');
+            const timestamp = new Date().toLocaleString('de-DE');
+            img.src = 'current.jpg?t=' + new Date().getTime();
+            document.getElementById('lastUpdated').textContent = timestamp;
+        }
+
+        // Initiales Laden und anschließend alle 30 Sekunden aktualisieren
+        updateImage();
+        setInterval(updateImage, 30000);
+    </script>
 </body>
 </html>
