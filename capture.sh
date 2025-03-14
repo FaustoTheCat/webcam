@@ -18,7 +18,16 @@ for i in {1..2}; do
   # Bild herunterladen und mit Zeitstempel speichern
   FILENAME="$OUTPUT_DIR/image_$TIMESTAMP.jpg"
   curl -o "$FILENAME" "$URL"
-  ln -sf   $FILENAME ${OUTPUT_DIR}/current.jpg
+#  ln -sf   $FILENAME ${OUTPUT_DIR}/current.jpg
+  cp   $FILENAME ${OUTPUT_DIR}/current.jpg
   # 10 Sekunden warten
+
+  if [ -f "novideo.txt" ]; then
+    # Prüfen, ob die zu löschende Datei existiert
+    if [ -f "$FILENAME" ]; then
+        rm "$FILENAME"
+        echo "$FILENAME wurde gelöscht."
+    fi
+  fi
   sleep 30
 done
