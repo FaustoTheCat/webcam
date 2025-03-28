@@ -19,7 +19,17 @@ for i in {1..2}; do
   FILENAME="$OUTPUT_DIR/image_$TIMESTAMP.jpg"
   curl -o "$FILENAME" "$URL"
 #  ln -sf   $FILENAME ${OUTPUT_DIR}/current.jpg
-  cp   $FILENAME ${OUTPUT_DIR}/current.jpg
+# Dateinamen
+OUTPUT="$OUTPUT_DIR/current.jpg"
+
+
+# Zeitstempel erzeugen (z.B. „2025-03-28 14:35:12“)
+TIMESTAMP2=$(date "+%Y-%m-%d %H:%M:%S")
+
+# Zeitstempel ins Bild schreiben (unten rechts)
+convert "$FILENAME" -gravity southeast -pointsize 24 -fill white -annotate +10+10 "$TIMESTAMP2" "$OUTPUT"
+
+#  cp   $FILENAME ${OUTPUT_DIR}/current.jpg
   # 10 Sekunden warten
 
   if [ -f "novideo.txt" ]; then
